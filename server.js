@@ -6,6 +6,7 @@ const Mongoose = require("mongoose");
 const userRoute = require("./routes/userRoutes");
 const bodyParser = require("body-parser");
 const mongodbUrl = config.MONGODB_URL;
+const port = process.env.PORT || 5000;
 Mongoose.connect(mongodbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -36,6 +37,6 @@ if(process.env.NODE_ENV==='production'){
   });
 }
 
-app.listen(5000, () => {
+app.listen(port, () => {
   console.log("Server started at http://localhost:5000");
 });
